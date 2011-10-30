@@ -39,6 +39,32 @@ header{
     width: 560px;
 }
 
+.append{
+    margin-top: 75px;
+    textarea{
+        display: block;
+        float: right;
+        resize: vertical;
+        width: 550px;
+    }
+}
+
+.sortable-list{
+    list-style: none;
+}
+
+.alert-message{
+    &.highlight{
+        @color: #1d91f8;
+        .gradientBar(lighten(@color, 15%), @color);
+        height: 18px;
+    }
+    &.purple{
+      .gradientBar(@purple, darken(@purple, 12%));
+      color: #fff;
+    }
+}
+
 footer{
     .spacing;
     border: none;

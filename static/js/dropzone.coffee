@@ -51,8 +51,21 @@ class Compressor
       styles = "#{styles} #{data}"
     )
     clean = CleanCSS.process(styles)
-    console.log clean
+    $('#output').val(clean)
+
+
+class Sortable
+    """A class to handle sortable functionality."""
+
+    constructor: ->
+        list = $('.sortable-list')
+        list.sortable({
+            axis: 'y'
+            placeholder: 'alert-message highlight'
+        })
+        list.disableSelection()
 
 
 do ->
   new DropZone('.dropzone')
+  new Sortable

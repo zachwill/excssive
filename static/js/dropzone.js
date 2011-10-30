@@ -1,5 +1,5 @@
 (function() {
-  var Compressor, DropZone, StyleSheet;
+  var Compressor, DropZone, Sortable, StyleSheet;
   DropZone = (function() {
     "This class handles drag and drop functionality.";    function DropZone(selector) {
       selector = $(selector);
@@ -65,11 +65,24 @@
         return styles = "" + styles + " " + data;
       });
       clean = CleanCSS.process(styles);
-      console.log(clean);
+      $('#output').val(clean);
     }
     return Compressor;
   })();
+  Sortable = (function() {
+    "A class to handle sortable functionality.";    function Sortable() {
+      var list;
+      list = $('.sortable-list');
+      list.sortable({
+        axis: 'y',
+        placeholder: 'alert-message highlight'
+      });
+      list.disableSelection();
+    }
+    return Sortable;
+  })();
   (function() {
-    return new DropZone('.dropzone');
+    new DropZone('.dropzone');
+    return new Sortable;
   })();
 }).call(this);
