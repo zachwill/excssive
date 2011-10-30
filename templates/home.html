@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+
+{% block js %}
+{% endblock %}
+
+
+{% block main %}
+<div class="container">
+  <div class="row">
+
+    <div class="span6">
+      <div class="row">
+        <div class="span6 info">
+          {{ lipsum(1, min=15, max=20) }}
+        </div>
+        <div class="span6 info">
+          {{ lipsum(1, min=15, max=20) }}
+        </div>
+      </div>
+    </div>
+
+    <div class="span10">
+      <div class="video"></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="append"></div>
+{% endblock %}
+
+
+{% block footer %}
+<div class="container">
+  <div class="row">
+    <div class="span-one-third"></div>
+    <div class="span-one-third"></div>
+    <div class="span-one-third"></div>
+  </div>
+</div>
+{% endblock %}

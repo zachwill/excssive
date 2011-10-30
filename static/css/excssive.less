@@ -1,0 +1,45 @@
+@import "bootstrap/mixins.less";
+
+@purple: #b21df8;
+.spacing{
+    padding: 75px 0;
+}
+
+.custom-highlight{
+    background: @purple;
+    color: #fff;
+    text-shadow: -1px 1px 1px darken(@purple, 15%);
+}
+
+/* Apply custom highlight */
+::-moz-selection{ .custom-highlight; }
+::selection { .custom-highlight; }
+
+header{
+    .spacing;
+    .logo{
+        background: url(/static/img/excssive.png) no-repeat 100% center;
+        height: 150px;
+        text-indent: -999em;
+    }
+}
+
+.info{
+    height: 125px;
+}
+
+.video{
+    background: #222;
+    float: right;
+    height: 315px;
+    width: 560px;
+}
+
+footer{
+    .spacing;
+    border: none;
+    .span-one-third{
+        background: #eee;
+        height: 150px;
+    }
+}
