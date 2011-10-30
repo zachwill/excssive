@@ -1,5 +1,5 @@
 (function() {
-  var DropZone, StyleSheet;
+  var Compressor, DropZone, StyleSheet;
   DropZone = (function() {
     "This class handles drag and drop functionality.";    function DropZone(selector) {
       selector = $(selector);
@@ -18,7 +18,6 @@
       _fn = function(file) {
         var reader;
         reader = new FileReader();
-        console.log(reader);
         reader.onload = function(event) {
           var name, result;
           name = file.name;
@@ -37,18 +36,38 @@
   })();
   StyleSheet = (function() {
     "Make a new HTML element from a dropped CSS file.";    function StyleSheet(name, result) {
-      console.log(name);
-      this.check_content('.append', '#css_files');
+      var append, list, sortable;
+      append = $('.append');
+      list = append.find('ul');
+      sortable = $('#sortable').mustache({
+        name: name
+      });
+      this.check_visibility(append);
+      sortable.data('style', result);
+      list.append(sortable);
+      new Compressor;
     }
-    StyleSheet.prototype.check_content = function(selector, template) {
-      var html;
-      selector = $(selector);
-      html = selector.html();
-      if (!html) {
-        return console.log("nope");
+    StyleSheet.prototype.check_visibility = function(element) {
+      if (element.hasClass('hidden')) {
+        return element.removeClass('hidden');
       }
     };
     return StyleSheet;
+  })();
+  Compressor = (function() {
+    "Compress the dropped CSS files.";    function Compressor() {
+      var clean, files, styles;
+      files = $('.sortable-list').children();
+      styles = '';
+      files.each(function(index, element) {
+        var data;
+        data = $(element).data('style');
+        return styles = "" + styles + " " + data;
+      });
+      clean = CleanCSS.process(styles);
+      console.log(clean);
+    }
+    return Compressor;
   })();
   (function() {
     return new DropZone('.dropzone');

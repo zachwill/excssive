@@ -16,7 +16,6 @@ class DropZone
     for file in files
       do (file) ->
         reader = new FileReader()
-        console.log reader
         reader.onload = (event) ->
           name = file.name
           result = event.target.result
@@ -29,14 +28,30 @@ class StyleSheet
   """Make a new HTML element from a dropped CSS file."""
 
   constructor: (name, result) ->
-    console.log name
-    @check_content('.append', '#css_files')
+    append = $('.append')
+    list = append.find('ul')
+    sortable = $('#sortable').mustache(name: name)
+    @check_visibility(append)
+    sortable.data('style', result)
+    list.append(sortable)
+    new Compressor
 
-  check_content: (selector, template) ->
-    selector = $(selector)
-    html = selector.html()
-    if not html
-      console.log "nope"
+  check_visibility: (element) ->
+    if element.hasClass('hidden') then element.removeClass('hidden')
+
+
+class Compressor
+  """Compress the dropped CSS files."""
+
+  constructor: ->
+    files = $('.sortable-list').children()
+    styles = ''
+    files.each( (index, element) ->
+      data = $(element).data('style')
+      styles = "#{styles} #{data}"
+    )
+    clean = CleanCSS.process(styles)
+    console.log clean
 
 
 do ->

@@ -2,6 +2,7 @@
 
 
 {% block js %}
+{% include "mustache.html" %}
 {% endblock %}
 
 
@@ -27,16 +28,17 @@
   </div>
 </div>
 
-<div class="append"></div>
+<div class="append hidden">
+  <div class="container">
+    <div class="row">
+      <ul class="sortable-list span8"></ul>
+      <div class="span8"></div>
+    </div>
+  </div>
+</div>
 {% endblock %}
 
 
 {% block footer %}
-<div class="container">
-  <div class="row">
-    <div class="span-one-third"></div>
-    <div class="span-one-third"></div>
-    <div class="span-one-third"></div>
-  </div>
-</div>
+{% include "footer.html" %}
 {% endblock %}
