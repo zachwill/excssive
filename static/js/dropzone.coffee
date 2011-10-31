@@ -10,7 +10,7 @@ class DropZone
     # Find the appropriate event. Semi-convoluted because of Silverlight shim.
     silverlight = if event and event.originalEvent then event.originalEvent else window.event
     event = silverlight or event
-    files = event.files or event.dataTransfer.files
+    files = event.files or event.dataTransfer.files or event.target.files
     if event.preventDefault
       event.preventDefault()
     for file in files
@@ -37,7 +37,9 @@ class StyleSheet
     new Compressor
 
   check_visibility: (element) ->
-    if element.hasClass('hidden') then element.removeClass('hidden')
+    if element.hasClass('hidden')
+      element.removeClass('hidden')
+      $('html, body').animate(scrollTop: 550)
 
 
 class Compressor
@@ -70,7 +72,6 @@ class Sortable
             new Compressor
         )
         list.disableSelection()
-
 
 
 do ->

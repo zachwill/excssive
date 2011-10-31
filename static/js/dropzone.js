@@ -11,7 +11,7 @@
       var file, files, silverlight, _fn, _i, _len;
       silverlight = event && event.originalEvent ? event.originalEvent : window.event;
       event = silverlight || event;
-      files = event.files || event.dataTransfer.files;
+      files = event.files || event.dataTransfer.files || event.target.files;
       if (event.preventDefault) {
         event.preventDefault();
       }
@@ -49,7 +49,10 @@
     }
     StyleSheet.prototype.check_visibility = function(element) {
       if (element.hasClass('hidden')) {
-        return element.removeClass('hidden');
+        element.removeClass('hidden');
+        return $('html, body').animate({
+          scrollTop: 550
+        });
       }
     };
     return StyleSheet;

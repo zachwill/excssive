@@ -1,8 +1,13 @@
 @import "bootstrap/mixins.less";
 
 @purple: #b21df8;
+
 .spacing{
     padding: 75px 0;
+}
+
+.hidden{
+    display: none;
 }
 
 .custom-highlight{
@@ -15,9 +20,13 @@
 ::-moz-selection{ .custom-highlight; }
 ::selection { .custom-highlight; }
 
-.hidden{
-    display: none;
+body a{
+    color: darken(#1d91f8, 8%);
+    &:hover{
+        color: @purple;
+    }
 }
+
 
 header{
     .spacing;
@@ -28,8 +37,8 @@ header{
     }
 }
 
-.info{
-    height: 125px;
+.info p{
+    margin-bottom: 35px;
 }
 
 .video{
@@ -68,7 +77,6 @@ footer{
     .spacing;
     border: none;
     .span-one-third{
-        background: #eee;
         height: 150px;
     }
 }
