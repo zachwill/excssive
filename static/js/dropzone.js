@@ -75,7 +75,10 @@
       list = $('.sortable-list');
       list.sortable({
         axis: 'y',
-        placeholder: 'alert-message highlight'
+        placeholder: 'alert-message highlight',
+        update: function() {
+          return new Compressor;
+        }
       });
       list.disableSelection();
     }

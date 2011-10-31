@@ -62,6 +62,7 @@ class Sortable
         list.sortable({
             axis: 'y'
             placeholder: 'alert-message highlight'
+            update: -> new Compressor
         })
         list.disableSelection()
 
