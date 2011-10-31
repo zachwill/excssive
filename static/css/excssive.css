@@ -7,7 +7,7 @@
 body a{color:#077de5;}body a:hover{color:#b21df8;}
 header{padding:75px 0;}header .logo{background:url(/static/img/excssive.png) no-repeat 100% center;height:150px;text-indent:-999em;}
 .info p{margin-bottom:35px;}
-iframe{float:right;}
+iframe{background:#222;float:right;}
 .append{margin-top:75px;}.append textarea{display:block;float:right;resize:vertical;width:550px;}
 .sortable-list{list-style:none;}
 .alert-message.highlight{background-color:#d480fb;background-repeat:repeat-x;background-image:-khtml-gradient(linear, left top, left bottom, from(#e5b1fd), to(#d480fb));background-image:-moz-linear-gradient(top, #e5b1fd, #d480fb);background-image:-ms-linear-gradient(top, #e5b1fd, #d480fb);background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #e5b1fd), color-stop(100%, #d480fb));background-image:-webkit-linear-gradient(top, #e5b1fd, #d480fb);background-image:-o-linear-gradient(top, #e5b1fd, #d480fb);background-image:linear-gradient(top, #e5b1fd, #d480fb);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5b1fd', endColorstr='#d480fb', GradientType=0);text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);border-color:#d480fb #d480fb #ba36f9;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);height:18px;}
