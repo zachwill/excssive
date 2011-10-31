@@ -64,7 +64,13 @@ class Sortable
             placeholder: 'alert-message highlight'
             update: -> new Compressor
         })
+        list.delegate('.close', 'click', (event) ->
+            $(this).parents('li').remove()
+            event.preventDefault()
+            new Compressor
+        )
         list.disableSelection()
+
 
 
 do ->

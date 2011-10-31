@@ -80,6 +80,11 @@
           return new Compressor;
         }
       });
+      list.delegate('.close', 'click', function(event) {
+        $(this).parents('li').remove();
+        event.preventDefault();
+        return new Compressor;
+      });
       list.disableSelection();
     }
     return Sortable;
